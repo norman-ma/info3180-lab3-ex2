@@ -1,0 +1,15 @@
+h2{
+    font-weight: bold;
+    padding: 0px 0px 10px 0px;
+    margin: 10px 0px 15px 0px;
+    border: #333333 2px solid;
+    border-width: 0px 0px 2px 0px;
+}
+
+form{
+    padding: 20px 0px;
+}
+
+.required{
+    color: #dc0000;    
+}

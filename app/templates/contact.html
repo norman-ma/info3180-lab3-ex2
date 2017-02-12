@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block css %} 
+<link rel = 'stylesheet' href = 'static/css/form.css' type = 'text/css'>
+{% endblock%}
+
+{% block main %}
+<div class = 'container'>
+    <h2> Contact Form </h2>
+    
+    <h4> Fill in this form to contact the site owners.</h4>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+        
+    <form action = "{{ url_for('contact') }}" method = 'post'>
+        <label for = 'name'>Name <span class = 'required'>[Required]</span></label><br/>
+        <span class = 'note'>Please enter your full name</span><br/>
+        {{ form.name(size = 40) }}<br/><br/>
+        
+        <label for = 'email'>E-mail <span class = 'required'>[Required]</span></label><br/>
+        <span class = 'note'>Please enter your e-mail address</span><br/>
+        {{ form.email(size = 40) }}<br/><br/>
+        
+        <label for = 'subject'>Subject <span class = 'required'>[Required]</span></label><br/>
+        <span class = 'note'>Please enter the subject form your message</span><br/>
+        {{ form.subject(size = 40) }}<br/><br/>
+        
+        <label for = 'message'>Message <span class = 'required'>[Required]</span></label><br/>
+        <span class = 'note'>Please enter the message you would like to send</span><br/>
+        {{ form.message(rows = 6, cols = 50) }}<br/><br/>
+        
+        <button type='submit' class='btn btn-primary'>Send</button>
+    </form>
+</div>
+{% endblock %}
